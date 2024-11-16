@@ -44,14 +44,17 @@ btn1.TextColor3 = Color3.new(1, 1, 1)
 btn1.TextScaled = true
 btn1.BorderSizePixel = 0
 Instance.new("UICorner", btn1).CornerRadius = UDim.new(0, 8)
-
 btn1.MouseButton1Click:Connect(function()
+if btn1.Text == "50 Coins" then
+btn1.Text = "50Coins"
+btn1.BackgroundColor3 = Color3.new(0.05, 0.05, 0.05)
     while true do
         wait(0.1)
         for _, part in pairs(game.Players:GetChildren()) do
             if part:FindFirstChild("CoinsToGive") then
                 part.CoinsToGive.Value = 50
             end
+end
         end
     end
 end)
@@ -67,6 +70,7 @@ btn2.TextScaled = true
 btn2.BorderSizePixel = 0
 Instance.new("UICorner", btn2).CornerRadius = UDim.new(0, 8)
 btn2.MouseButton1Click:Connect(function()
+btn2.BackgroundColor3 = Color3.new(0.05, 0.05, 0.05)
         for _, player in pairs(game.Players:GetChildren()) do
             if player.Character then
                 local highlight = Instance.new("Highlight")
@@ -81,6 +85,8 @@ btn2.MouseButton1Click:Connect(function()
                 end
             end
 end
+wait(0.5)
+btn2.BackgroundColor3 = Color3.new(0.1, 0.1, 0.1)
 end)
 local btn23 = Instance.new("TextButton")
 btn23.Parent = f
@@ -94,6 +100,9 @@ btn23.TextScaled = true
 btn23.BorderSizePixel = 0
 Instance.new("UICorner", btn23).CornerRadius = UDim.new(0, 8)
 btn23.MouseButton1Click:Connect(function()
+if btn23.Text == "FullBright" then
+btn23.Text = "Full Bright"
+btn23.BackgroundColor3 = Color3.new(0.05, 0.05, 0.05)
 while true do
 wait(0.5)
 game.Lighting.Atmosphere.Color = Color3.new(1,1,1)
@@ -101,6 +110,7 @@ game.Lighting.Atmosphere.Decay = Color3.new(1,1,1)
 game.Lighting.Atmosphere.Density = 0
 game.Lighting.Atmosphere.Offset = 0
 game.Lighting.Ambient = Color3.new(1,1,1)
+end
 end
 end)
 
