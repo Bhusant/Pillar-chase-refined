@@ -1,0 +1,106 @@
+local p = game.Players.LocalPlayer
+local g = Instance.new("ScreenGui")
+g.Parent = p:WaitForChild("PlayerGui")
+
+local f = Instance.new("ScrollingFrame")
+f.Parent = g
+f.BackgroundColor3 = Color3.new(0, 0, 0)
+f.Size = UDim2.new(0.2, 0, 0.2, 0)
+f.Position = UDim2.new(0.05, 0, 0.05, 0)
+f.BackgroundTransparency = 0.2
+f.BorderSizePixel = 0
+
+local u = Instance.new("UIStroke", f)
+u.Thickness = 10
+u.Color = Color3.new(0, 0, 0)
+u.Transparency = 0.2
+
+local tx = Instance.new("TextLabel", g)
+tx.Size = UDim2.new(0.2, 0, 0.03, 0)
+tx.Position = UDim2.new(0.05, 0, 0.01, 0)
+tx.Text = "Pillar Chase 2 script, made by Exuctive_Mem on discord."
+tx.TextColor3 = Color3.new(1, 1, 1)
+tx.TextScaled = true
+tx.BackgroundColor3 = Color3.new(0, 0, 0)
+tx.BackgroundTransparency = 0.2
+tx.BorderSizePixel = 0
+Instance.new("UICorner", tx).CornerRadius = UDim.new(0, 8)
+
+local IM = Instance.new("ImageLabel")
+IM.Parent = g
+IM.Image = "http://www.roblox.com/asset/?id=1477485793"
+IM.Size = UDim2.new(0.25, 0, 0.05, 0)
+IM.Position = UDim2.new(0.025, 0, 0.01, 0)
+IM.BackgroundTransparency = 1
+IM.ZIndex = 0.1
+local btn1 = Instance.new("TextButton")
+btn1.Parent = f
+btn1.Size = UDim2.new(1, 0, 0.02, 0)
+btn1.Position = UDim2.new(0, 0, 0, 0)
+btn1.BackgroundColor3 = Color3.new(0.1, 0.1, 0.1)
+btn1.BackgroundTransparency = 0
+btn1.Text = "50 Coins"
+btn1.TextColor3 = Color3.new(1, 1, 1)
+btn1.TextScaled = true
+btn1.BorderSizePixel = 0
+Instance.new("UICorner", btn1).CornerRadius = UDim.new(0, 8)
+
+btn1.MouseButton1Click:Connect(function()
+    while true do
+        wait(0.1)
+        for _, part in pairs(game.Players:GetChildren()) do
+            if part:FindFirstChild("CoinsToGive") then
+                part.CoinsToGive.Value = 50
+            end
+        end
+    end
+end)
+local btn2 = Instance.new("TextButton")
+btn2.Parent = f
+btn2.Size = UDim2.new(1, 0, 0.02, 0)
+btn2.Position = UDim2.new(0, 0, 0.025, 0)
+btn2.BackgroundColor3 = Color3.new(0.1, 0.1, 0.1)
+btn2.BackgroundTransparency = 0
+btn2.Text = "ESP"
+btn2.TextColor3 = Color3.new(1, 1, 1)
+btn2.TextScaled = true
+btn2.BorderSizePixel = 0
+Instance.new("UICorner", btn2).CornerRadius = UDim.new(0, 8)
+btn2.MouseButton1Click:Connect(function()
+        for _, player in pairs(game.Players:GetChildren()) do
+            if player.Character then
+                local highlight = Instance.new("Highlight")
+                highlight.Parent = player.Character
+                        highlight.FillColor = Color3.new(0, 1, 0)
+                local Aspect = player.Character:FindFirstChild("Aspects")
+                if Aspect then
+                    local killing = Aspect:FindFirstChild("NumberKills")
+                    if killing then
+                        highlight.FillColor = Color3.new(1, 0, 0)
+                    end
+                end
+            end
+end
+end)
+local btn23 = Instance.new("TextButton")
+btn23.Parent = f
+btn23.Size = UDim2.new(1, 0, 0.02, 0)
+btn23.Position = UDim2.new(0, 0, 0.050, 0)
+btn23.BackgroundColor3 = Color3.new(0.1, 0.1, 0.1)
+btn23.BackgroundTransparency = 0
+btn23.Text = "FullBright"
+btn23.TextColor3 = Color3.new(1, 1, 1)
+btn23.TextScaled = true
+btn23.BorderSizePixel = 0
+Instance.new("UICorner", btn23).CornerRadius = UDim.new(0, 8)
+btn23.MouseButton1Click:Connect(function()
+while true do
+wait(0.5)
+game.Lighting.Atmosphere.Color = Color3.new(1,1,1)
+game.Lighting.Atmosphere.Decay = Color3.new(1,1,1)
+game.Lighting.Atmosphere.Density = 0
+game.Lighting.Atmosphere.Offset = 0
+game.Lighting.Ambient = Color3.new(1,1,1)
+end
+end)
+
